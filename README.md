@@ -9,7 +9,7 @@ Call in command window like:
 python3 bfobuddy.py [input file location]
 ```
 
-Example file **input.txt** provided.
+Example file [input.txt](input.txt) provided.
 
 * Interact by typing the number of the class you want to extend (e.g., 0)
 * Type the number twice to assert it as a sibling class (e.g., 00), in cases where you do not want to go further down BFO's taxonomy (e.g., for the commonly-extended class Process)
