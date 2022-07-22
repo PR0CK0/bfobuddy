@@ -134,4 +134,4 @@ with open(inputFile) as file:
     for line in file:
         traverseGraph(bfoGraph, newGraph, line.strip(), newIRI)
 
-newGraph.serialize(destination = 'test.ttl', format = 'text/turtle')
+newGraph.serialize(destination = 'out.ttl', format = 'text/turtle')
