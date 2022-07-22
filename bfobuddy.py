@@ -56,6 +56,14 @@ def getSubClasses(graph, superClass):
         list.append(s)
     return list
 
+def getNumClasses(graph):
+    num = 0
+    for s, p, o in graph.triples((None, RDF.type, OWL.Class)):
+        num += 1
+    for s, p, o in graph.triples((None, RDF.type, RDFS.Class)):
+        num += 1
+    return num
+
 def isLeafNode(graph, clazz):
     temp = []
     for s in graph.triples((None, RDFS.subClassOf, clazz)):
@@ -106,15 +114,15 @@ def traverseGraph(oldGraph, newGraph, newClass, newIRI):
         if len(str(selection)) == 2:
             assertedSiblingSelection = str(selection)[0]
             print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(assertedSiblingSelection)], RDFS.label).capitalize() + '\n')
-            newGraph.add((URIRef(newClassIRI), RDF.type, OWL.Class))
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(assertedSiblingSelection)]))
             return
         elif isLeafNode(oldGraph, subClassesIndexed[selection]):
             print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(selection)], RDFS.label).capitalize() + '\n')
-            newGraph.add((URIRef(newClassIRI), RDF.type, OWL.Class))
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(selection)]))
             return
-    
+        
+        newGraph.add((URIRef(newClassIRI), RDF.type, OWL.Class))
+
         subClasses = sorted(getSubClasses(oldGraph, subClassesIndexed[int(selection)]))
         indent += 1
 
@@ -139,4 +147,4 @@ with open(inputFile) as file:
         traverseGraph(bfoGraph, newGraph, line.strip(), newIRI)
 
 newGraph.serialize(destination = 'out.ttl', format = 'text/turtle')
-print('Graph serialized as a turtle file in the same directory.')
+print(str(getNumClasses(newGraph)) + ' new classes serialized as a turtle file in the same directory.')
