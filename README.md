@@ -3,6 +3,8 @@ A simple command line tool for bootstrapping ontology development with BFO.
 
 Bare minimum command line script for quickly building a BFO-based taxonomy. This script is a proof-of-concept; more functionality to come.
 
+Made because Protege is an awful platform and should be used as little as possible. BFO is the basis of extension for representing anything in reality.
+
 ## Use
 Download [bfobuddy.py](bfobuddy.py), then call it in command window like:
 ```
