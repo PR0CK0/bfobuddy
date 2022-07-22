@@ -9,9 +9,12 @@
 testo: a owl:Ontology ;
     owl:imports bfo:bfo.owl .
 
-testo:ActofProgramminginPython rdfs:subClassOf bfo:BFO_0000015 .
+testo:ActofProgramminginPython a owl:Class ;
+    rdfs:subClassOf bfo:BFO_0000015 .
 
-testo:HuckleberryFinn rdfs:subClassOf bfo:BFO_0000031 .
+testo:HuckleberryFinn a owl:Class ;
+    rdfs:subClassOf bfo:BFO_0000031 .
 
-testo:PerlScripter rdfs:subClassOf bfo:BFO_0000030 .
+testo:PerlScripter a owl:Class ;
+    rdfs:subClassOf bfo:BFO_0000030 .
 
