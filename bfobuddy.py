@@ -103,11 +103,11 @@ def traverseGraph(oldGraph, newGraph, newClass, newIRI):
         
         if len(str(selection)) == 2:
             assertedSiblingSelection = str(selection)[0]
-            print('>>>>> ' + newClass + ' asserted as RDF:type ' + oldGraph.value(subClassesIndexed[int(assertedSiblingSelection)], RDFS.label).capitalize() + '\n')
+            print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(assertedSiblingSelection)], RDFS.label).capitalize() + '\n')
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(assertedSiblingSelection)]))
             return
         elif isLeafNode(oldGraph, subClassesIndexed[selection]):
-            print('>>>>> ' + newClass + ' asserted as RDF:type ' + oldGraph.value(subClassesIndexed[int(selection)], RDFS.label).capitalize() + '\n')
+            print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(selection)], RDFS.label).capitalize() + '\n')
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(selection)]))
             return
     
@@ -135,3 +135,4 @@ with open(inputFile) as file:
         traverseGraph(bfoGraph, newGraph, line.strip(), newIRI)
 
 newGraph.serialize(destination = 'out.ttl', format = 'text/turtle')
+print('Graph serialized as a turtle file in the same directory.')
