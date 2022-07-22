@@ -67,7 +67,9 @@ def isLeafNode(graph, clazz):
 def getSelection(selectionDictionary):    
     while True:
         selection = input('>>> ')
-        if re.match('[^0-9]{1,2}', selection):
+        if selection == '':
+            print('>>>>> Invalid')
+        elif re.match('[^0-9]{1,2}', selection):
             print('>>>>> Invalid')
         elif re.match('[0-9][^0-9]+', selection):
             print('>>>>> Invalid')
@@ -104,10 +106,12 @@ def traverseGraph(oldGraph, newGraph, newClass, newIRI):
         if len(str(selection)) == 2:
             assertedSiblingSelection = str(selection)[0]
             print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(assertedSiblingSelection)], RDFS.label).capitalize() + '\n')
+            newGraph.add((URIRef(newClassIRI), RDF.type, OWL.Class))
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(assertedSiblingSelection)]))
             return
         elif isLeafNode(oldGraph, subClassesIndexed[selection]):
             print('>>>>> ' + newClass + ' asserted as RDFS:subClassOf ' + oldGraph.value(subClassesIndexed[int(selection)], RDFS.label).capitalize() + '\n')
+            newGraph.add((URIRef(newClassIRI), RDF.type, OWL.Class))
             newGraph.add((URIRef(newClassIRI), RDFS.subClassOf, subClassesIndexed[int(selection)]))
             return
     
