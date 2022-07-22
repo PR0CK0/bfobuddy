@@ -4,7 +4,7 @@ A simple command line tool for bootstrapping ontology development with BFO.
 Bare minimum command line script for quickly building a BFO-based taxonomy. This script is a proof-of-concept; more functionality to come.
 
 ## Use
-Call in command window like:
+Download [bfobuddy.py](bfobuddy.py)all in command window like:
 ```
 python3 bfobuddy.py [input file location]
 ```
