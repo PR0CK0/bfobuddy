@@ -8,7 +8,7 @@ Made because Protege is an awful platform and should be used as little as possib
 ## Use
 Download [bfobuddy.py](bfobuddy.py), then call it in command window like:
 ```
-python3 bfobuddy.py [input file location]
+python bfobuddy.py [input file location]
 ```
 
 Example file [input.txt](input.txt) provided.
