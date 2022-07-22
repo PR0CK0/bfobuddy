@@ -20,7 +20,7 @@ Example file [input.txt](input.txt) provided.
 # Requirements
 * Python 3 
 * First line of input file must be your intended IRI (e.g., http://test.org/test/) (do not forget your IRI end delimiter (/ or #))
-* Second line of file must be your intended prefix (e.g., testo)
+* Second line of input file must be your intended prefix (e.g., testo)
 * All other lines in file are class names you want to represent in BFO. Ensure these words only use letters and numbers.
 
 # Limitations
