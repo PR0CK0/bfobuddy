@@ -1,25 +1,11 @@
-##########
-#  PR0CK0
+############################################################################
+# PR0CK0
 # 07-22-22
-##########
-
 ############################################################################
 # Bare minimum command line script for quickly building a BFO-based taxonomy
 # This script is a proof-of-concept; more functionality to come
 ############################################################################
-# Call in command window like:
-# >>> python3 bfobuddy.py [input file location]
-# First line of file must be your intended IRI (e.g., http://test.org/test/)
-# Do not forget your IRI end delimiter (/ or #)
-# Second line of file must be your intended prefix (e.g., testo)
-# All other lines in file are class names you want to represent in BFO
-# Ensure these words only use letters and numbers
-# Interact by typing the number of the class you want to extend (e.g., 0)
-# Type the number twice to assert it as a sibling class (e.g., 00)
-############################################################################
-# Dump your domain lexicon into a file and get started using BFO
-# A good exercise for learning BFO as you go
-# Once done, use an editor like Protege to add relationships
+# Documentation at: https://github.com/PR0CK0/bfobuddy
 ############################################################################
 
 # See also: https://www.michelepasin.org/blog/2011/07/18/inspecting-an-ontology-with-rdflib/
